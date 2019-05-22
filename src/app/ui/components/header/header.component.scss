@@ -1,0 +1,8 @@
+@import 'theme';
+@import 'fonts';
+
+h1 {
+  text-align: center;
+  font-size: $h2-fontsize;
+  color: $color1;
+}
