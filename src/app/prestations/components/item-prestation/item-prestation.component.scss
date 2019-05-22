@@ -1,0 +1,11 @@
+@import 'theme';
+
+.state-annule {
+  background: lighten($color1, 10);
+}
+.state-option {
+  background: $color1;
+}
+.state-confirme {
+  background: $color2;
+}
