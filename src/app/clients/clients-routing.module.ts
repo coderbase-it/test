@@ -3,7 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { PageClientsComponent } from './pages/page-clients/page-clients.component';
 
 const appRoutes: Routes = [
-  { path: '', component: PageClientsComponent },
+  {
+    path: '',
+    component: PageClientsComponent,
+    data: {title: 'Clients', label: 'Liste des clients'}
+  },
 ];
 
 @NgModule({

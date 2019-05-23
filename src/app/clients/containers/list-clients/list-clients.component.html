@@ -1,0 +1,7 @@
+<app-tableau [headers]="headers">
+  <app-item-client
+    *ngFor="let obj of collection"
+    [item]="obj"
+    (doChange)="change($event)"
+  ></app-item-client>
+</app-tableau>

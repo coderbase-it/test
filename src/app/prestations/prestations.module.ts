@@ -5,9 +5,12 @@ import { ItemPrestationComponent } from './components/item-prestation/item-prest
 import { ListPrestationsComponent } from './containers/list-prestations/list-prestations.component';
 import { PagePrestationsComponent } from './pages/page-prestations/page-prestations.component';
 import { PrestationsRoutingModule } from './prestations-routing.module';
+import { PageAddPrestationComponent } from './pages/page-add-prestation/page-add-prestation.component';
+import { AddPrestationComponent } from './containers/add-prestation/add-prestation.component';
+import { FormPrestationComponent } from './components/form-prestation/form-prestation.component';
 
 @NgModule({
-  declarations: [PagePrestationsComponent, ListPrestationsComponent, ItemPrestationComponent],
+  declarations: [PagePrestationsComponent, ListPrestationsComponent, ItemPrestationComponent, PageAddPrestationComponent, AddPrestationComponent, FormPrestationComponent],
   imports: [
     CommonModule,
     PrestationsRoutingModule,
