@@ -1,0 +1,12 @@
+<ng-template #popContent>
+    <ul class="list-group">
+      <li *ngFor="let item of actions" class="list-group-item" (click)="action(item.fn)">
+        <fa-icon [icon]="item.icon"></fa-icon>
+        {{ item.fn }}
+      </li>
+    </ul>
+</ng-template>
+
+<button type="button" class="btn btn-outline-secondary" [ngbPopover]="popContent" placement="left">
+  <fa-icon [icon]="faEllipsisV"></fa-icon>
+</button>

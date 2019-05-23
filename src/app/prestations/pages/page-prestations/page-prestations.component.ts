@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./page-prestations.component.scss']
 })
 export class PagePrestationsComponent implements OnInit {
+  txtButton = 'Ajouter une prestation';
   constructor() { }
 
   ngOnInit() {

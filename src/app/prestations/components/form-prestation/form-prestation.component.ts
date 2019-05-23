@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Prestation } from 'src/app/shared/models/prestation.model';
+import { State } from 'src/app/shared/enums/state.enum';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form-prestation',
@@ -6,10 +9,36 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./form-prestation.component.scss']
 })
 export class FormPrestationComponent implements OnInit {
-
-  constructor() { }
+  states = State;
+  form: FormGroup;
+  init = new Prestation();
+  @Output() nItem: EventEmitter<Prestation> = new EventEmitter();
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.createForm();
+  }
+
+  private createForm() {
+    this.form = this.fb.group({
+      typePresta: [
+        this.init.typePresta,
+        Validators.required
+      ],
+      client: [
+        this.init.client,
+        Validators.compose([Validators.required, Validators.minLength(3)])
+      ],
+      nbJours: [this.init.nbJours],
+      tjmHt: [this.init.tjmHt],
+      tauxTva: [this.init.tauxTva],
+      state: [this.init.state],
+      comment: [this.init.comment],
+    });
+  }
+
+  submit() {
+    this.nItem.emit(this.form.value);
   }
 
 }

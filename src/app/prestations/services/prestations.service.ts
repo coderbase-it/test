@@ -23,6 +23,9 @@ export class PrestationsService {
   }
 
   // add item in collection
+  add(item: Prestation) {
+    this.collection.push(new Prestation(item));
+  }
 
   // update item in collection
   update(item: Prestation, state?: State) {
@@ -34,6 +37,9 @@ export class PrestationsService {
   }
 
   // delete item in collection
+  delete(item: Prestation) {
+    console.log(item);
+  }
 
   // get item by id
 }
