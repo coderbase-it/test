@@ -34,6 +34,10 @@ export class ClientsService {
   }
 
   // delete item in collection
+  delete(item: Client) {
+    console.log(item);
+
+  }
 
   // get item by id
 }

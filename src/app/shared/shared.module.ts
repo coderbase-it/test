@@ -10,10 +10,12 @@ import { ActionComponent } from './components/action/action.component';
 import { NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LinksComponent } from './components/links/links.component';
 
 @NgModule({
-  declarations: [TotalPipe, StateDirective, TableauComponent, ButtonAddComponent, ActionComponent],
-  exports: [TotalPipe, StateDirective, TableauComponent, ButtonAddComponent, ActionComponent, TemplatesModule, ReactiveFormsModule],
+  declarations: [TotalPipe, StateDirective, TableauComponent, ButtonAddComponent, ActionComponent, LinksComponent],
+  // tslint:disable-next-line:max-line-length
+  exports: [TotalPipe, StateDirective, TableauComponent, ButtonAddComponent, ActionComponent, LinksComponent, TemplatesModule, ReactiveFormsModule, RouterModule],
   imports: [
     CommonModule,
     TemplatesModule,

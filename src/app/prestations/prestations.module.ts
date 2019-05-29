@@ -8,13 +8,18 @@ import { PrestationsRoutingModule } from './prestations-routing.module';
 import { PageAddPrestationComponent } from './pages/page-add-prestation/page-add-prestation.component';
 import { AddPrestationComponent } from './containers/add-prestation/add-prestation.component';
 import { FormPrestationComponent } from './components/form-prestation/form-prestation.component';
+import { DetailPrestationComponent } from './components/detail-prestation/detail-prestation.component';
+import { CommentPrestationComponent } from './components/comment-prestation/comment-prestation.component';
+import { PageEditPrestationComponent } from './pages/page-edit-prestation/page-edit-prestation.component';
+import { EditPrestationComponent } from './containers/edit-prestation/edit-prestation.component';
 
 @NgModule({
-  declarations: [PagePrestationsComponent, ListPrestationsComponent, ItemPrestationComponent, PageAddPrestationComponent, AddPrestationComponent, FormPrestationComponent],
+  // tslint:disable-next-line:max-line-length
+  declarations: [PagePrestationsComponent, ListPrestationsComponent, ItemPrestationComponent, PageAddPrestationComponent, AddPrestationComponent, FormPrestationComponent, DetailPrestationComponent, CommentPrestationComponent, PageEditPrestationComponent, EditPrestationComponent],
   imports: [
     CommonModule,
     PrestationsRoutingModule,
-    SharedModule
+    SharedModule,
   ]
 })
 export class PrestationsModule { }

@@ -11,5 +11,13 @@
       >
     </select>
   </td>
-  <td>action</td>
+  <td>
+    <app-action
+      [actions]="[
+        { icon: faEdit, fn: 'edit' },
+        { icon: faTrashAlt, fn: 'delete' }
+      ]"
+      (doAction)="action($event)"
+    ></app-action>
+  </td>
 </tr>

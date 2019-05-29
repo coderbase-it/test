@@ -20,9 +20,20 @@ export class AddPrestationComponent implements OnInit {
   }
 
   add(item: Prestation) {
-    this.prestationsService.add(item);
-    // this.router.navigate(['prestations']);
-    this.router.navigate(['../'], {relativeTo: this.route});
+    this.prestationsService.add(item).then((res) => {
+      // res serait la reponse de l'api
+      // this.router.navigate(['prestations']);
+      this.router.navigate(['../'], {relativeTo: this.route});
+    });
   }
+
+  // add(item: Prestation) {
+  //   // si appel http vers not api avec httpClient
+  //   this.prestationsService.add(item).subscribe((res) => {
+  //     // res serait la reponse de l'api
+  //     // this.router.navigate(['prestations']);
+  //     this.router.navigate(['../'], {relativeTo: this.route});
+  //   });
+  // }
 
 }
