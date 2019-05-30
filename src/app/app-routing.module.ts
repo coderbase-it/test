@@ -8,13 +8,13 @@ const appRoutes: Routes = [
   },
   {
     path: 'clients',
-    loadChildren: './clients/clients.module#ClientsModule',
+    loadChildren: () => import('./clients/clients.module').then(m => m.ClientsModule),
   }, {
     path: 'prestations',
-    loadChildren: './prestations/prestations.module#PrestationsModule',
+    loadChildren: () => import('./prestations/prestations.module').then(m => m.PrestationsModule),
   }, {
     path: '**',
-    loadChildren: './page-not-found/page-not-found.module#PageNotFoundModule',
+    loadChildren: () => import('./page-not-found/page-not-found.module').then(m => m.PageNotFoundModule),
   },
 ];
 

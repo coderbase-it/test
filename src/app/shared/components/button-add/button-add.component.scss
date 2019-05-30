@@ -1,6 +1,6 @@
 @import 'theme';
 
-:host() {
+:host {
   margin: 10px;
 }
 
@@ -15,5 +15,5 @@ button {
   padding: .5rem 1rem;
   color: $light-color;
   border: none;
-  
+
 }
