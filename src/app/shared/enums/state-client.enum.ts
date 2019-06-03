@@ -1,4 +1,4 @@
 export enum StateClient {
-  ACTIF = 'Actif',
-  INACTIF = 'Inactif'
+  ACTIVE = 'Active',
+  INACTIVE = 'Inactive'
 }

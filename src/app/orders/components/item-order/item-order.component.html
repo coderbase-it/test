@@ -1,0 +1,15 @@
+<tr>
+  <td>{{ item.type }}</td>
+  <td>{{ item.client.name }}</td>
+  <td>{{ item.duration }}</td>
+  <td>{{ item | total | currency: 'EUR' }}</td>
+  <td>{{ item | total:item.vat | currency: 'EUR' }}</td>
+  <td [appState]="item.state">
+    <select class="form-control" (change)="changeState($event)">
+      <option *ngFor="let state of states | keyvalue" [value]="state.value" [selected]="item.state === state.value">{{ state.value }}</option>
+    </select>
+  </td>
+  <td>
+    <app-action [actions]="[{icon: faEdit, fn: 'edit'}, {icon: faTrashAlt, fn: 'delete'}]" (doAction)="action($event)"></app-action>
+  </td>
+</tr>

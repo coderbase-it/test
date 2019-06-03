@@ -1,0 +1,44 @@
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+
+    <div class="form-group">
+      <label for="type">type</label>
+      <input formControlName="type" type="text" class="form-control" id="type">
+    </div>
+
+    <div class="form-group">
+      <label for="client">client</label>
+      <input formControlName="client" type="text" class="form-control" id="client">
+    </div>
+
+    <div class="form-group">
+      <label for="duration">duration</label>
+      <input formControlName="duration" type="number" class="form-control" id="duration">
+    </div>
+
+    <div class="form-group">
+      <label for="vat">vat</label>
+      <input formControlName="vat" type="number" class="form-control" id="vat">
+    </div>
+
+    <div class="form-group">
+      <label for="adr">adrDutyFree</label>
+      <input formControlName="adrDutyFree" type="number" class="form-control" id="adr">
+    </div>
+
+    <div class="form-group">
+      <label for="state">state</label>
+      <select formControlName="state" class="form-control" id="state">
+        <option *ngFor="let state of (states | keyvalue)" [value]="state.value">{{ state.value }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="comment">comment</label>
+      <textarea formControlName="comment" class="form-control" id="comment"></textarea>
+    </div>
+
+    <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Submit</button>
+
+  </form>
+</div>

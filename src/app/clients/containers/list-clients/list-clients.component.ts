@@ -3,6 +3,7 @@ import { Client } from 'src/app/shared/models/client.model';
 import { ClientsService } from '../../services/clients.service';
 import { StateClient } from 'src/app/shared/enums/state-client.enum';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-list-clients',
@@ -11,15 +12,17 @@ import { Router } from '@angular/router';
 })
 export class ListClientsComponent implements OnInit {
 
-  collection: Client[];
+
   headers: Array<string>;
+  clients$: Observable<Client[]>;
   constructor(
     private clientsService: ClientsService,
     private router: Router
   ) { }
 
   ngOnInit() {
-    this.collection = this.clientsService.collection;
+    this.clientsService.getClients();
+    this.clients$ = this.clientsService.clients$;
     this.headers = [
       'Name',
       'Email',
@@ -28,11 +31,11 @@ export class ListClientsComponent implements OnInit {
     ];
   }
 
-  change(param: {item: Client, state: StateClient}) {
+  change(param: { item: Client, state: StateClient }) {
     this.clientsService.update(param.item, param.state);
   }
 
-  action(param: {item: Client, action: string}) {
+  action(param: { item: Client, action: string }) {
     if (param.action === 'delete') {
       this.clientsService.delete(param.item);
     }

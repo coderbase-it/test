@@ -6,7 +6,7 @@ const appRoutes: Routes = [
   {
     path: '',
     component: PageClientsComponent,
-    data: {title: 'Clients', label: 'Liste des clients'}
+    data: {title: 'Clients', label: 'list of clients'}
   },
 ];
 

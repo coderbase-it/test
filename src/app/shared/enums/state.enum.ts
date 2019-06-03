@@ -1,6 +1,6 @@
 export enum State {
-  ANNULE = 'Annulé',
+  CANCEL = 'Cancel',
   OPTION = 'Option',
-  CONFIRME = 'Confirmé'
+  CONFIRM = 'Confirm'
 }
 

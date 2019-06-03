@@ -10,8 +10,8 @@ const appRoutes: Routes = [
     path: 'clients',
     loadChildren: () => import('./clients/clients.module').then(m => m.ClientsModule),
   }, {
-    path: 'prestations',
-    loadChildren: () => import('./prestations/prestations.module').then(m => m.PrestationsModule),
+    path: 'orders',
+    loadChildren: () => import('./orders/orders.module').then(m => m.OrdersModule),
   }, {
     path: '**',
     loadChildren: () => import('./page-not-found/page-not-found.module').then(m => m.PageNotFoundModule),

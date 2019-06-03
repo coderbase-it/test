@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "crm-grenoble-mai": {
+    "coderbase-starter": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/crm-grenoble-mai",
+            "outputPath": "dist/coderbase-starter",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -70,18 +70,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "crm-grenoble-mai:build"
+            "browserTarget": "coderbase-starter:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "crm-grenoble-mai:build:production"
+              "browserTarget": "coderbase-starter:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "crm-grenoble-mai:build"
+            "browserTarget": "coderbase-starter:build"
           }
         },
         "test": {
@@ -115,7 +115,7 @@
         }
       }
     },
-    "crm-grenoble-mai-e2e": {
+    "coderbase-starter-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -124,11 +124,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "crm-grenoble-mai:serve"
+            "devServerTarget": "coderbase-starter:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "crm-grenoble-mai:serve:production"
+              "devServerTarget": "coderbase-starter:serve:production"
             }
           }
         },
@@ -179,5 +179,5 @@
       }
     }
   },
-  "defaultProject": "crm-grenoble-mai"
+  "defaultProject": "coderbase-starter"
 }

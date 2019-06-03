@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./page-clients.component.scss']
 })
 export class PageClientsComponent implements OnInit  {
-  txtButton = 'Ajouter un client';
+  txtButton = 'Add a client';
   constructor() {
   }
 

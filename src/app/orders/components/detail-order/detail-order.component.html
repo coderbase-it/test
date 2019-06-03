@@ -1,0 +1,8 @@
+<ng-container *ngIf="(presta$ | async) as presta">
+  <p>
+    {{ presta.type }}
+  </p>
+  <p>
+    {{ presta.client }}
+  </p>
+</ng-container>

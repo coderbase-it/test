@@ -1,17 +1,17 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Prestation } from '../models/prestation.model';
+import { Order } from '../models/order.model';
 
 @Pipe({
   name: 'total'
 })
 export class TotalPipe implements PipeTransform {
 
-  transform(value: Prestation, args?: any): number {
+  transform(value: Order, args?: any): number {
     if (value) {
       if (args) {
-        return value.totalTtc(args);
+        return value.totalWithTaxes(args);
       }
-      return value.totalHt();
+      return value.totalDutyFree();
     }
     return null;
   }

@@ -1,15 +1,15 @@
 @import 'theme';
 
 #tab {
-  .state-annule {
+  .state-cancel {
     background: lighten($color1, 10);
   }
   .state-option,
-  .state-inactif {
+  .state-inactive {
     background: $color1;
   }
-  .state-confirme,
-  .state-actif {
+  .state-confirm,
+  .state-active {
     background: $color2;
   }
   tbody > * {

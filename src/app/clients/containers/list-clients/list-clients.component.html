@@ -1,6 +1,6 @@
 <app-tableau [headers]="headers">
   <app-item-client
-    *ngFor="let obj of collection"
+    *ngFor="let obj of (clients$ | async)"
     [item]="obj"
     (doChange)="change($event)"
     (doAction)="action($event)"
