@@ -14,8 +14,12 @@ import { PageEditOrderComponent } from './pages/page-edit-order/page-edit-order.
 import { EditOrderComponent } from './containers/edit-order/edit-order.component';
 
 @NgModule({
-  // tslint:disable-next-line:max-line-length
-  declarations: [PageOrdersComponent, ListOrdersComponent, ItemOrderComponent, PageAddOrderComponent, AddOrderComponent, FormOrderComponent, DetailOrderComponent, CommentOrderComponent, PageEditOrderComponent, EditOrderComponent],
+  declarations: [PageOrdersComponent,
+    ListOrdersComponent, ItemOrderComponent,
+    PageAddOrderComponent, AddOrderComponent,
+    FormOrderComponent, DetailOrderComponent,
+    CommentOrderComponent, PageEditOrderComponent,
+    EditOrderComponent],
   imports: [
     CommonModule,
     OrdersRoutingModule,

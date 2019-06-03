@@ -1,7 +1,7 @@
 <app-template-a>
-  <app-list-orders></app-list-orders>
   <app-button-add [text]="txtButton"></app-button-add>
-  <app-links [links]="[{route: 'detail', libelle: 'Detail'}, {route: 'comment', libelle: 'Comment'}]"></app-links>
-
+  <app-list-orders></app-list-orders>
+  <app-links [links]="[{route: 'detail', libelle: 'Detail'}, {route: 'comment', libelle: 'Comment'}]">
+  </app-links>
   <router-outlet></router-outlet>
 </app-template-a>

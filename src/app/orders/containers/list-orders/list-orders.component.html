@@ -1,6 +1,7 @@
 <app-tableau [headers]="headers">
 
-  <app-item-order *ngFor="let obj of (orders$ | async)" [item]="obj" (doChange)="change($event)" (doAction)="action($event)" (click)="displayDetail(obj)"></app-item-order>
+  <app-item-order *ngFor="let obj of (orders$ | async)" [item]="obj"
+  (doChange)="change($event)"
+    (doAction)="action($event)" (click)="displayDetail(obj)" ></app-item-order>
 
 </app-tableau>
-

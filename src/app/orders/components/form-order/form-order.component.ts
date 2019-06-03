@@ -9,10 +9,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./form-order.component.scss']
 })
 export class FormOrderComponent implements OnInit {
-  states = State;
-  form: FormGroup;
   @Input() init = new Order();
   @Output() nItem: EventEmitter<Order> = new EventEmitter();
+  states = State;
+  form: FormGroup;
+
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -21,6 +22,7 @@ export class FormOrderComponent implements OnInit {
 
   private createForm() {
     this.form = this.fb.group({
+      // TODO type base on enum/list
       type: [
         this.init.type,
         Validators.required

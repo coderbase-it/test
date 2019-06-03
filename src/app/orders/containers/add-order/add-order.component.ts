@@ -20,7 +20,8 @@ export class AddOrderComponent implements OnInit {
   }
 
   add(item: Order) {
-    this.ordersService.add(item)
+    this.ordersService.add(item);
+    // TODO TO fix need to wait until add finish
     // res serait la reponse de l'api
     // this.router.navigate(['orders']);
     this.router.navigate(['../'], { relativeTo: this.route });

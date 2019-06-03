@@ -4,8 +4,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  // Strategy On Push Activate on App Component
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent {
-  title = 'coderbase-starter';
-}
+export class AppComponent {}

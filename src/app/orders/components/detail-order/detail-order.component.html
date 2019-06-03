@@ -1,8 +1,8 @@
-<ng-container *ngIf="(presta$ | async) as presta">
+<ng-container *ngIf="(order$ | async) as order">
   <p>
-    {{ presta.type }}
+    {{ order.type }}
   </p>
   <p>
-    {{ presta.client }}
+    {{ order.client.name }}
   </p>
 </ng-container>

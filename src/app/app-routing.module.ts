@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Router, RouterModule, Routes, PreloadAllModules } from '@angular/router';
+import { environment } from '../environments/environment';
 
+// Application Route
+// Lazy loading Angular 8 new pattern
 const appRoutes: Routes = [
   { path: '',
     redirectTo: '/login',
@@ -23,7 +26,9 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       {
-        enableTracing: false,
+        // Tracing active on every environment except prod
+        // enableTracing: !environment.production,
+        // Strategy PrelaodAllModule for preloading Lazy Loading Module After AppModule is load
         preloadingStrategy: PreloadAllModules
       }
     )
@@ -31,7 +36,7 @@ const appRoutes: Routes = [
 })
 export class AppRoutingModule {
   constructor(router: Router) {
-    // Use a custom replacer to display function names in the route configs
+    // Code from angular.io for displaying route config
     const replacer = (key, value) => (typeof value === 'function') ? value.name : value;
 
     console.log('Routes: ', JSON.stringify(router.config, replacer, 2));

@@ -5,13 +5,6 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
-  title = 'Coderbase App';
-  constructor() {
-  }
-
-
-  ngOnInit() {
-  }
-
+export class HeaderComponent  {
+  public title = 'Coderbase App';
 }

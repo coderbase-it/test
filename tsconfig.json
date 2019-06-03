@@ -17,14 +17,6 @@
     "lib": [
       "es2018",
       "dom"
-    ],
-    "paths": {
-      "ui-test": [
-        "dist/ui-test"
-      ],
-      "ui-test/*": [
-        "dist/ui-test/*"
-      ]
-    }
+    ]
   }
 }

@@ -10,6 +10,10 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class OrdersService {
+
+  private privateOrderSelected: BehaviorSubject<Order> = new BehaviorSubject(null);
+  public readonly orderSelected$ = this.privateOrderSelected.asObservable();
+
   private privateOrders$: BehaviorSubject<Order[]> = new BehaviorSubject([]);
   public readonly orders$ = this.privateOrders$.asObservable();
 
@@ -26,14 +30,14 @@ export class OrdersService {
 
   getOrder(id: string): Observable<Order> {
     return this.http.get<Order>(`${environment.urlApi}/orders/${id}`).pipe(
-      map(order =>  new Order(order))
+      map(order => new Order(order))
     );
   }
 
   add(item: Order) {
     this.http.post<Order>(`${environment.urlApi}/orders`, item).subscribe((data) => {
       const ordersList = this.privateOrders$.value;
-      ordersList.push(data);
+      ordersList.push(new Order(data));
       this.privateOrders$.next(ordersList);
     });
   }
@@ -46,7 +50,7 @@ export class OrdersService {
     return this.http.put<Order>(`${environment.urlApi}/orders/${item.id}`, item).subscribe((data) => {
       const ordersList = this.privateOrders$.value;
       ordersList.forEach((order) => {
-        if ( order.id === data.id) {
+        if (order.id === data.id) {
           order = data;
         }
       });
@@ -57,10 +61,13 @@ export class OrdersService {
   delete(item: Order) {
     return this.http.delete(`${environment.urlApi}/orders/${item.id}`).subscribe(_ => {
       let ordersList = this.privateOrders$.value;
-      ordersList = ordersList.filter((order ) => order.id !== item.id);
+      ordersList = ordersList.filter((order) => order.id !== item.id);
       this.privateOrders$.next(ordersList);
     });
   }
 
+  selectOrder(order: Order) {
+    this.privateOrderSelected.next(order);
+  }
 
 }

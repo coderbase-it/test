@@ -15,18 +15,25 @@ export class Order implements OrderI {
       Object.assign(this, fields);
     }
   }
-  totalDutyFree(): number {
 
+  totalDutyFree(): number {
     return this.adrDutyFree * this.duration;
   }
-  totalWithTaxes(vat?: number): number {
 
+  totalWithTaxes(vat?: number): number {
+    let finalVat = 0;
     if (vat) {
-      if (vat <= 0) {
-        return this.totalDutyFree();
-      }
-      return this.totalDutyFree() * (1 + vat / 100);
+      finalVat = vat;
+    } else {
+      finalVat = this.vat;
     }
-    return this.totalDutyFree() * (1 + this.vat / 100);
+
+    if (vat <= 0) {
+      return this.totalDutyFree();
+    } else {
+      return this.totalDutyFree() * (1 + finalVat / 100);
+    }
+
+
   }
 }

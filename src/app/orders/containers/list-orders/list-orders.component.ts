@@ -13,11 +13,12 @@ import { OrdersService } from '../../services/orders.service';
   styleUrls: ['./list-orders.component.scss']
 })
 export class ListOrdersComponent implements OnInit {
-
-
-  headers: Array<string>;
+  // TODO list client inside edition of a order
+  // TODO ordering orders by id for seeing more recent on top
+  public headers: Array<string>;
+  // TODO WTF ?
   private listItems$: QueryList<ItemOrderComponent> = new QueryList();
-  orders$: Observable<Order[]>;
+  public orders$: Observable<Order[]>;
   constructor(
     private ordersService: OrdersService,
     private router: Router
@@ -40,7 +41,6 @@ export class ListOrdersComponent implements OnInit {
   }
 
   change(param: {item: Order, state: State}) {
-
     this.ordersService.update(param.item, param.state);
   }
 
@@ -53,8 +53,11 @@ export class ListOrdersComponent implements OnInit {
     }
   }
 
-  displayDetail(obj) {
-   // this.ordersService.presta$.next(obj);
+  displayDetail(order: Order) {
+    this.ordersService.selectOrder(order);
+    // TODO stopPropagation on change
+    // simple js scroll to bottom ()
+    window.scrollTo(0, document.body.scrollHeight);
   }
 
 

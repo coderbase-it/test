@@ -13,9 +13,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LinksComponent } from './components/links/links.component';
 
 @NgModule({
-  declarations: [TotalPipe, StateDirective, TableauComponent, ButtonAddComponent, ActionComponent, LinksComponent],
-  // tslint:disable-next-line:max-line-length
-  exports: [TotalPipe, StateDirective, TableauComponent, ButtonAddComponent, ActionComponent, LinksComponent, TemplatesModule, ReactiveFormsModule, RouterModule],
+  declarations: [TotalPipe, StateDirective,
+    TableauComponent, ButtonAddComponent,
+    ActionComponent, LinksComponent],
+  exports: [TotalPipe, StateDirective,
+    TableauComponent, ButtonAddComponent,
+    ActionComponent, LinksComponent,
+    TemplatesModule, ReactiveFormsModule, RouterModule],
   imports: [
     CommonModule,
     TemplatesModule,

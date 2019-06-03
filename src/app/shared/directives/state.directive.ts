@@ -8,6 +8,7 @@ import { StateClient } from '../enums/state-client.enum';
 export class StateDirective implements OnChanges {
   @Input() appState: State | StateClient;
   @HostBinding('class') nomClass: string;
+
   constructor() {
   }
 
@@ -20,7 +21,8 @@ export class StateDirective implements OnChanges {
   }
 
 }
-// appState vaut Annulé => state-annule
+
+// appState vaut Cancel => state-cancel
 // appState vaut Option => state-option
-// appState vaut Confirmé => state-confirme
+// appState vaut Confirm => state-confirm
 // res fn donner cette value à l'attribut class de mon host element

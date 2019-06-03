@@ -15,7 +15,7 @@ export class ItemOrderComponent implements OnInit {
   states = State;
   faEdit = faEdit;
   faTrashAlt = faTrashAlt;
-  // states = Object.values(State);
+  // TODO states = Object.values(State);
   constructor() {
   }
 

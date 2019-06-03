@@ -10,7 +10,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "generate": "json-server api/generate.js",
-    "compodoc": "compodoc -s -p src/tsconfig.app.json"
+    "compodoc": "compodoc -s -o -p src/tsconfig.app.json",
+    "lint-fix": "tslint --fix ./src/**/*.ts -t verbose"
   },
   "private": true,
   "dependencies": {

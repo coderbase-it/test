@@ -8,7 +8,9 @@ import { AppComponent } from './app.component';
 import { LoginModule } from './login/login.module';
 import { UiModule } from './ui/ui.module';
 
+// loading angular localeFr
 import localeFr from '@angular/common/locales/fr';
+
 // the second parameter 'fr' is optional
 registerLocaleData(localeFr, 'fr');
 
@@ -24,6 +26,7 @@ registerLocaleData(localeFr, 'fr');
     AppRoutingModule,
     HttpClientModule,
   ],
+  // provide LOCALE_ID use by Angular Pipes internally
   providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
   bootstrap: [AppComponent]
 })
