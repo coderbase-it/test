@@ -32,7 +32,9 @@ export class ListClientsComponent implements OnInit {
   }
 
   change(param: { item: Client, state: StateClient }) {
-    this.clientsService.update(param.item, param.state);
+    const itemtoPut = { ...param.item};
+    itemtoPut.state = param.state;
+    this.clientsService.update(itemtoPut).subscribe();
   }
 
   action(param: { item: Client, action: string }) {

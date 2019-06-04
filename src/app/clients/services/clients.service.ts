@@ -4,7 +4,7 @@ import { StateClient } from 'src/app/shared/enums/state-client.enum';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -32,20 +32,17 @@ export class ClientsService {
   /**
    * update client state and update clients store accordingly ( behaviorSubject)
    */
-  update(item: Client, state?: StateClient) {
-    // TODO PROBLEME ICI AUSSI
-    item.state = state;
-
+  update(item: Client) {
     return this.http.put<Client>(`${environment.urlApi}/clients/${item.id}`, item)
-    .subscribe((data: Client) => {
+    .pipe(tap((data: Client) => {
       const clientsList = this.privateClients$.value;
       clientsList.forEach((client) => {
         if ( client.id === data.id) {
-          client = data;
+          client = new Client(data);
         }
       });
       this.privateClients$.next(clientsList);
-    });
+    }));
   }
 
   /**
@@ -53,9 +50,10 @@ export class ClientsService {
    * @param item
    */
   delete(item: Client) {
-    return this.http.delete(`${environment.urlApi}/clients/${item.id}`).subscribe(_ => {
+    return this.http.delete(`${environment.urlApi}/clients/${item.id}`)
+    .subscribe( () => {
       let clientsList = this.privateClients$.value;
-      clientsList = clientsList.filter((order ) => order.id !== item.id);
+      clientsList = clientsList.filter((client) => client.id !== item.id);
       this.privateClients$.next(clientsList);
     });
   }

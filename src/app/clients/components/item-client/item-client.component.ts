@@ -17,7 +17,7 @@ export class ItemClientComponent implements OnInit {
   states = StateClient;
   faEdit = faEdit;
   faTrashAlt = faTrashAlt;
-  //TODO
+  // TODO 
   // states = Object.values(State);
   constructor() {
   }

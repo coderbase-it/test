@@ -2,6 +2,8 @@
   <td>{{ item.name }}</td>
   <td>{{ item.email }}</td>
   <td [appState]="item.state">
+
+    <!-- Use Ng Model Example and Changes -->
     <select class="form-control" (change)="changeState($event)">
       <option
         *ngFor="let state of states | keyvalue"
