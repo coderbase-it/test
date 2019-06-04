@@ -23,7 +23,7 @@ import { EditOrderComponent } from './containers/edit-order/edit-order.component
   imports: [
     CommonModule,
     OrdersRoutingModule,
-    SharedModule,
+    SharedModule
   ]
 })
 export class OrdersModule { }

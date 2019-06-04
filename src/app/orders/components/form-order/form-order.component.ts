@@ -22,11 +22,12 @@ export class FormOrderComponent implements OnInit {
 
   private createForm() {
     this.form = this.fb.group({
-      // TODO type base on enum/list
+
       type: [
         this.init.type,
         Validators.required
       ],
+      // TODO type base on list clients
       client: [
         this.init.client,
         Validators.compose([Validators.required, Validators.minLength(3)])

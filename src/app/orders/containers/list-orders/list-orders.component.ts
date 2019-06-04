@@ -13,11 +13,7 @@ import { OrdersService } from '../../services/orders.service';
   styleUrls: ['./list-orders.component.scss']
 })
 export class ListOrdersComponent implements OnInit {
-  // TODO list client inside edition of a order
-  // TODO ordering orders by id for seeing more recent on top
   public headers: Array<string>;
-  // TODO WTF ?
-  private listItems$: QueryList<ItemOrderComponent> = new QueryList();
   public orders$: Observable<Order[]>;
   constructor(
     private ordersService: OrdersService,
@@ -41,7 +37,9 @@ export class ListOrdersComponent implements OnInit {
   }
 
   change(param: {item: Order, state: State}) {
-    this.ordersService.update(param.item, param.state);
+    const ordertoPut = new Order(param.item);
+    ordertoPut.state = param.state;
+    this.ordersService.update(ordertoPut).subscribe();
   }
 
   action(param: {item: Order, action: string}) {
@@ -55,7 +53,6 @@ export class ListOrdersComponent implements OnInit {
 
   displayDetail(order: Order) {
     this.ordersService.selectOrder(order);
-    // TODO stopPropagation on change
     // simple js scroll to bottom ()
     window.scrollTo(0, document.body.scrollHeight);
   }

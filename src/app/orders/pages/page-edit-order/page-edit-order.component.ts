@@ -15,6 +15,7 @@ export class PageEditOrderComponent implements OnInit {
 
   ngOnInit() {
     // TODO paramMap or params ?
+
     this.route.paramMap.subscribe((data) => {
       this.id = data.get('id');
     });

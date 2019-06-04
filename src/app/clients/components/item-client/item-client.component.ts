@@ -17,7 +17,7 @@ export class ItemClientComponent implements OnInit {
   states = StateClient;
   faEdit = faEdit;
   faTrashAlt = faTrashAlt;
-  // TODO 
+  // Angular < 6 Way to do ( keyvalues pipe )
   // states = Object.values(State);
   constructor() {
   }

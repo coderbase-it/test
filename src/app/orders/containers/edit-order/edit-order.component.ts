@@ -24,11 +24,10 @@ export class EditOrderComponent implements OnInit {
 
   update(item: Order) {
     item.id = this.orderId;
-    this.ordersService.update(item);
-    // TODO same wait when update is done
-      // res serait la reponse de l'api
-      // this.router.navigate(['orders']);
-    this.router.navigate(['../../'], {relativeTo: this.route});
+    this.ordersService.update(item).subscribe(() => {
+      this.router.navigate(['../../'], {relativeTo: this.route});
+    });
+
 
   }
 

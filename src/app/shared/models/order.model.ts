@@ -21,14 +21,14 @@ export class Order implements OrderI {
   }
 
   totalWithTaxes(vat?: number): number {
-    let finalVat = 0;
+    let finalVat;
     if (vat) {
       finalVat = vat;
     } else {
       finalVat = this.vat;
     }
 
-    if (vat <= 0) {
+    if (finalVat <= 0) {
       return this.totalDutyFree();
     } else {
       return this.totalDutyFree() * (1 + finalVat / 100);

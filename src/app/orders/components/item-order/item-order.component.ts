@@ -15,7 +15,8 @@ export class ItemOrderComponent implements OnInit {
   states = State;
   faEdit = faEdit;
   faTrashAlt = faTrashAlt;
-  // TODO states = Object.values(State);
+  // Angular < 6 way ( otherwise keyvalues )
+  // states = Object.values(State);
   constructor() {
   }
 

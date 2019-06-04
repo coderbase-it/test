@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
-  // TODO use config for url synchronisation
+  // TODO use config for url synchronisation ( TP end of cursus)
   constructor() { }
 
   ngOnInit() {

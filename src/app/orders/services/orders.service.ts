@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Order } from 'src/app/shared/models/order.model';
 import { State } from 'src/app/shared/enums/state.enum';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
@@ -20,6 +20,7 @@ export class OrdersService {
 
   constructor(private http: HttpClient) { }
 
+
   getOrders() {
     this.http.get<Order[]>(`${environment.urlApi}/orders`).pipe(
       map(orders => orders.map(data => new Order(data)))
@@ -35,27 +36,24 @@ export class OrdersService {
   }
 
   add(item: Order) {
-    this.http.post<Order>(`${environment.urlApi}/orders`, item).subscribe((data) => {
+    return this.http.post<Order>(`${environment.urlApi}/orders`, item).pipe(tap((data) => {
       const ordersList = this.privateOrders$.value;
-      ordersList.push(new Order(data));
+      ordersList.unshift(new Order(data));
       this.privateOrders$.next(ordersList);
-    });
+    }));
   }
 
-  update(item: Order, state?: State) {
-    // TODO PROBLEME ICI ? si requete echoues
-    if (state) {
-      item.state = state;
-    }
-    return this.http.put<Order>(`${environment.urlApi}/orders/${item.id}`, item).subscribe((data) => {
+  update(item: Order) {
+
+    return this.http.put<Order>(`${environment.urlApi}/orders/${item.id}`, item).pipe(tap(((data) => {
       const ordersList = this.privateOrders$.value;
       ordersList.forEach((order) => {
         if (order.id === data.id) {
-          order = data;
+          order = new Order(data);
         }
       });
       this.privateOrders$.next(ordersList);
-    });
+    })));
   }
 
   delete(item: Order) {
