@@ -33,8 +33,8 @@ export class ListOrdersComponent implements OnInit {
       'Type',
       'Client',
       'Duration',
-      'Total price Duty Free',
-      'Total price incl. taxes',
+      'Total excl. VAT',
+      'Total incl. VAT',
       'State',
       'Action'
     ];
