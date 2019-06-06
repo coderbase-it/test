@@ -22,8 +22,8 @@ registerLocaleData(localeFr, 'fr');
     BrowserModule,
     UiModule,
     NgbModule,
-    LoginModule,
     AppRoutingModule,
+    LoginModule,
     HttpClientModule,
   ],
   // provide LOCALE_ID use by Angular Pipes internally

@@ -22,7 +22,7 @@ export class OrdersService {
 
 
   getOrders() {
-    this.http.get<Order[]>(`${environment.urlApi}/orders`).pipe(
+    this.http.get<Order[]>(`${environment.urlApi}/orders?_expand=client`).pipe(
       map(orders => orders.map(data => new Order(data)))
     ).subscribe((orders) => {
       this.privateOrders$.next(orders);
@@ -30,7 +30,7 @@ export class OrdersService {
   }
 
   getOrder(id: string): Observable<Order> {
-    return this.http.get<Order>(`${environment.urlApi}/orders/${id}`).pipe(
+    return this.http.get<Order>(`${environment.urlApi}/orders/${id}?_expand=client`).pipe(
       map(order => new Order(order))
     );
   }

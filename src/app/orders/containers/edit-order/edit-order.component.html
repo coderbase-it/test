@@ -1,2 +1,2 @@
 <app-form-order *ngIf="(order$ | async) as order"
-(nItem)="update($event)" [init]="order"></app-form-order>
+(nItem)="update($event)" [init]="order" [clients]="clients$ | async"></app-form-order>

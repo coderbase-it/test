@@ -5,19 +5,19 @@ let generateOrders = (clients) => {
   let orders = [];
 
   clients.forEach((client, index) => {
-    if (client.state === "ACTIVE") {
-      let c = { id: client.id, name: client.name }
-      const State = {
-        CANCEL: 'Cancel',
-        OPTION: 'Option',
-        CONFIRM: 'Confirm'
-      }
-      const randomState = faker.random.arrayElement(Object.getOwnPropertyNames(State))
-      const Type = {
-        DEV: 'Dev',
-        COACHING: 'Coaching'
-      }
-      const randomType = faker.random.arrayElement(Object.getOwnPropertyNames(Type))
+    if (client.state === "Active") {
+
+      const State = [
+         'Cancel',
+         'Option',
+         'Confirm'
+        ]
+      const randomState = faker.random.arrayElement(State)
+      const Type =  [
+         'Dev',
+        'Coaching'
+      ]
+      const randomType = faker.random.arrayElement(Type)
 
       let duration = faker.random.number({
         'min': 1,
@@ -32,7 +32,7 @@ let generateOrders = (clients) => {
 
       orders.push({
         "id": index,
-        "client": c,
+        "clientId":  client.id,
         "state": randomState,
         "type": randomType,
         "duration": duration,
@@ -51,11 +51,11 @@ let generateClients = () => {
   for (let id = 0; id < 30; id++) {
     let name = faker.company.companyName();
     let email = faker.internet.email();
-    const State = {
-      ACTIVE : 'Active',
-      INACTIVE : 'Inactive'
-    }
-    let randomState = faker.random.arrayElement(Object.getOwnPropertyNames(State))
+    const State = [
+      'Active',
+      'Inactive'
+    ]
+    let randomState = faker.random.arrayElement(State)
 
 
     clients.push({

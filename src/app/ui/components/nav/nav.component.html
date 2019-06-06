@@ -1,5 +1,5 @@
 <ul class="nav flex-column">
-  <li class="nav-item">
+<!--   <li class="nav-item">
     <a class="nav-link" routerLink="/orders" routerLinkActive="active">Orders</a>
   </li>
   <li class="nav-item">
@@ -7,5 +7,9 @@
   </li>
   <li class="nav-item">
     <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+  </li> -->
+  <li class="nav-item" *ngFor="let link of links">
+    <a class="nav-link" [routerLink]="'/' + link.path" routerLinkActive="active">{{ link.data.name }}</a>
   </li>
+
 </ul>

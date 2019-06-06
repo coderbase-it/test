@@ -11,9 +11,11 @@ const appRoutes: Routes = [
   },
   {
     path: 'clients',
+    data : { position : 'nav', name: 'Clients'},
     loadChildren: () => import('./clients/clients.module').then(m => m.ClientsModule),
   }, {
     path: 'orders',
+    data : { position : 'nav', name: 'Orders'},
     loadChildren: () => import('./orders/orders.module').then(m => m.OrdersModule),
   }, {
     path: '**',

@@ -3,7 +3,7 @@ import { Component, OnInit, OnDestroy, QueryList } from '@angular/core';
 import { Order } from 'src/app/shared/models/order.model';
 import { State } from 'src/app/shared/enums/state.enum';
 import { Subscription, Observable } from 'rxjs';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ItemOrderComponent } from '../../components/item-order/item-order.component';
 import { OrdersService } from '../../services/orders.service';
 
@@ -17,7 +17,8 @@ export class ListOrdersComponent implements OnInit {
   public orders$: Observable<Order[]>;
   constructor(
     private ordersService: OrdersService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
@@ -37,9 +38,8 @@ export class ListOrdersComponent implements OnInit {
   }
 
   change(param: {item: Order, state: State}) {
-    const ordertoPut = new Order(param.item);
-    ordertoPut.state = param.state;
-    this.ordersService.update(ordertoPut).subscribe();
+    param.item.state = param.state;
+    this.ordersService.update(new Order(param.item)).subscribe();
   }
 
   action(param: {item: Order, action: string}) {
@@ -52,8 +52,9 @@ export class ListOrdersComponent implements OnInit {
   }
 
   displayDetail(order: Order) {
+
     this.ordersService.selectOrder(order);
-    // simple js scroll to bottom ()
+    this.router.navigate(['detail'], {relativeTo: this.route})
     window.scrollTo(0, document.body.scrollHeight);
   }
 

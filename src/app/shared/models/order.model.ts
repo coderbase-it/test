@@ -3,7 +3,7 @@ import { State } from '../enums/state.enum';
 
 export class Order implements OrderI {
   id: string;
-  client: { id: string, name: string } ;
+  clientId: string ;
   type: string;
   duration = 1;
   adrDutyFree = 500;

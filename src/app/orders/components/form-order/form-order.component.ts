@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Order } from 'src/app/shared/models/order.model';
 import { State } from 'src/app/shared/enums/state.enum';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Client } from 'src/app/shared/models/client.model';
 
 @Component({
   selector: 'app-form-order',
@@ -11,6 +12,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class FormOrderComponent implements OnInit {
   @Input() init = new Order();
   @Output() nItem: EventEmitter<Order> = new EventEmitter();
+  @Input() clients: Client[] = []
   states = State;
   form: FormGroup;
 
@@ -21,16 +23,16 @@ export class FormOrderComponent implements OnInit {
   }
 
   private createForm() {
+    console.log(this.init.state)
     this.form = this.fb.group({
 
       type: [
         this.init.type,
         Validators.required
       ],
-      // TODO type base on list clients
-      client: [
-        this.init.client,
-        Validators.compose([Validators.required, Validators.minLength(3)])
+      clientId: [
+        this.init.clientId,
+        Validators.required
       ],
       duration: [this.init.duration],
       adrDutyFree: [this.init.adrDutyFree],

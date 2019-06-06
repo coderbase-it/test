@@ -4,8 +4,6 @@
 
 # TODO Edit Client à faire 
 
-# TODO get/setter pour remplacer getClients par orders
-
 # Un petit message d'erreur de validation de formulaire 
 
 # TODO LIST ?

@@ -7,11 +7,18 @@
       <input formControlName="type" type="text" class="form-control" id="type">
     </div>
 
-    <!-- TODO display type select box  -->
     <div class="form-group">
       <label for="client">client</label>
-      <input formControlName="client" type="text" class="form-control" id="client">
+      <select class="form-control" formControlName="clientId" id="client">
+        <option
+          *ngFor="let client of clients"
+          [value]="client.id"
+          >{{ client.name }}</option
+        >
+      </select>
     </div>
+
+
 
     <div class="form-group">
       <label for="duration">duration</label>
