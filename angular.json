@@ -115,27 +115,34 @@
         }
       }
     },
-    "coderbase-starter-e2e": {
-      "root": "e2e/",
-      "projectType": "application",
-      "prefix": "",
+    "uiTest": {
+      "root": "projects/ui-test",
+      "sourceRoot": "projects/ui-test/src",
+      "projectType": "library",
+      "prefix": "lib",
       "architect": {
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "coderbase-starter:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "coderbase-starter:serve:production"
-            }
+            "tsConfig": "projects/ui-test/tsconfig.lib.json",
+            "project": "projects/ui-test/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ui-test/src/test.ts",
+            "tsConfig": "projects/ui-test/tsconfig.spec.json",
+            "karmaConfig": "projects/ui-test/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": "e2e/tsconfig.e2e.json",
+            "tsConfig": [
+              "projects/ui-test/tsconfig.lib.json",
+              "projects/ui-test/tsconfig.spec.json"
+            ],
             "exclude": [
               "**/node_modules/**"
             ]
