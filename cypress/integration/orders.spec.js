@@ -1,5 +1,6 @@
+/// <reference types="Cypress" />
 
-describe("Orders", ()=> {
+describe("Orders", () => {
 
   beforeEach(() => {
     cy.visit('http://localhost:4200/orders')
@@ -25,19 +26,24 @@ describe("Orders", ()=> {
   })
 
   it('should have select by order ', () => {
-    select = cy.get("app-item-order:first-child select")
-    select.should('have.length.greaterThan', 0)
-    select.select('Cancel')
-    select.should('have.value', 'Cancel')
-    select.parent().should('have.class', 'state-cancel' )
-    select = cy.get("app-item-order:first-child select")
+    cy.get("[data-cy=select]").should('have.length.greaterThan', 0)
+    cy.get("[data-cy=select]").first().select('Cancel').then((select$) => {
+
+
+      cy.get("[data-cy=select]").then((select2$) => {
+        expect(select2$.val()).eq('Cancel')
+        expect(select$.parent().hasClass('state-cancel')).eq(true)
+      })
+      //expect(select2$.get('option').text()).eq('Cancel')
+    })
+   /*  select = cy.get("app-item-order:first-child select")
     select.select('Confirm')
     select.should('have.value', 'Confirm')
-    select.parent().should('have.class', 'state-confirm' )
+    select.parent().should('have.class', 'state-confirm')
     select = cy.get("app-item-order:first-child select")
     select.select('Option')
     select.should('have.value', 'Option')
-    select.parent().should('have.class', 'state-option' )
+    select.parent().should('have.class', 'state-option') */
 
   })
 

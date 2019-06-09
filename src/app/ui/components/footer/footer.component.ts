@@ -1,5 +1,5 @@
 import { Component, VERSION } from '@angular/core';
-
+import { CDMon } from 'ngx-cdmon';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -8,4 +8,7 @@ import { Component, VERSION } from '@angular/core';
 export class FooterComponent  {
   //  Use for displaying Angular Version
   public version = VERSION.full;
+  constructor(cdmon: CDMon) {
+    cdmon.enable();
+  }
 }

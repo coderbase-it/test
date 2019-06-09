@@ -5,7 +5,7 @@
   <td>{{ item | total | currency: 'EUR' }}</td>
   <td>{{ item | total:item.vat | currency: 'EUR' }}</td>
   <td [appState]="item.state">
-    <select class="form-control" (change)="changeState($event)" (click)="$event.stopPropagation()">
+    <select class="form-control" (change)="changeState($event)" (click)="$event.stopPropagation()" data-cy="select">
       <option *ngFor="let state of states | keyvalue" [value]="state.value"
       [selected]="item.state === state.value">{{ state.value }}</option>
     </select>

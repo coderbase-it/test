@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-
+import { CDMon } from 'ngx-cdmon';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +7,8 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   // Strategy On Push Activate on App Component
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent {}
+export class AppComponent {
+  constructor(cdmon: CDMon) {
+    cdmon.enable();
+  }
+}
