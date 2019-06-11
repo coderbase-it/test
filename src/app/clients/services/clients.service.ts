@@ -47,7 +47,7 @@ export class ClientsService {
 
   /**
    * delete client and update store accordingly
-   * @param item
+   * @param item client
    */
   delete(item: Client) {
     return this.http.delete(`${environment.urlApi}/clients/${item.id}`)

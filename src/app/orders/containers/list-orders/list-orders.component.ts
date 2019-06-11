@@ -54,7 +54,7 @@ export class ListOrdersComponent implements OnInit {
   displayDetail(order: Order) {
 
     this.ordersService.selectOrder(order);
-    this.router.navigate(['detail'], {relativeTo: this.route})
+    this.router.navigate(['detail'], {relativeTo: this.route});
     window.scrollTo(0, document.body.scrollHeight);
   }
 

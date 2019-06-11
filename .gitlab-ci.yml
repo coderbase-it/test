@@ -33,7 +33,7 @@ pages:
   script:
   - mkdir .public
   - cp -r documentation/* .public
-  - mv .public public
+  - mv .public public/documentation
   artifacts:
     paths:
     - public

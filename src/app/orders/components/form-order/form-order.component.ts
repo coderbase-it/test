@@ -12,7 +12,7 @@ import { Client } from 'src/app/shared/models/client.model';
 export class FormOrderComponent implements OnInit {
   @Input() init = new Order();
   @Output() nItem: EventEmitter<Order> = new EventEmitter();
-  @Input() clients: Client[] = []
+  @Input() clients: Client[] = [];
   states = State;
   form: FormGroup;
 
@@ -23,7 +23,7 @@ export class FormOrderComponent implements OnInit {
   }
 
   private createForm() {
-    console.log(this.init.state)
+    console.log(this.init.state);
     this.form = this.fb.group({
 
       type: [
