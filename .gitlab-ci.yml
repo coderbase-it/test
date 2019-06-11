@@ -19,9 +19,6 @@ build:
         - dist/
 doc:
   stage: doc
-  cache:
-      paths:
-        - node_modules/
   script:
     - npm run compodoc-ci
   artifacts:
@@ -40,14 +37,16 @@ pages:
   only:
   - master
 
-test:
+generate-api:
   stage: test
-  cache:
-      paths:
-        - node_modules/
+  use: build
   script:
   - ng lint
-  - ng build --prod && npm run generate
+  - npm run json-server
+
+
+test:
+  stage: test
+  script:
   - npm run cy:verify
   - npm run ci:cy-run
-

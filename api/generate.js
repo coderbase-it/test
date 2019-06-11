@@ -1,6 +1,6 @@
 
 let faker = require('faker');
-
+var db = { "clients":[ ], "orders": []};
 let generateOrders = (clients) => {
   let orders = [];
 
@@ -30,7 +30,7 @@ let generateOrders = (clients) => {
       let comment = faker.lorem.paragraph();
 
 
-      orders.push({
+      db.orders.push({
         "id": index,
         "clientId":  client.id,
         "state": randomState,
@@ -42,7 +42,7 @@ let generateOrders = (clients) => {
     }
   })
 
-  return orders
+
 }
 
 let generateClients = () => {
@@ -58,21 +58,18 @@ let generateClients = () => {
     let randomState = faker.random.arrayElement(State)
 
 
-    clients.push({
+    db.clients.push({
       "id": id,
       "name": name,
       "email": email,
       "state": randomState
     });
   }
-  return clients
-}
-let generate = () => {
-  const clients = generateClients();
-  const orders = generateOrders(clients);
 
-
-  return { "orders": orders, "clients": clients }
+  return db.clients
 }
 
-module.exports = generate
+const clients = generateClients();
+generateOrders(clients);
+
+console.log(JSON.stringify(db))
