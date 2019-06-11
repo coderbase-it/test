@@ -1,19 +1,24 @@
 image: coderbase/angular:8
 
+stages:
+  - build
+  - doc
+
 build:
     stage: build
-cache:
-    paths:
-    - node_modules/
+    cache:
+      paths:
+        - node_modules/
     script:
-    - npm install --quiet
-    - npm run build-prod
-artifacts:
-    paths:
+      - npm install --quiet
+      - npm run build-prod
+    artifacts:
+      paths:
         - dist/
-stage: doc
-        script:
-- npm run compodoc-ci
-artifacts:
+doc:
+  stage: doc
+    script:
+      - npm run compodoc-ci
+  artifacts:
     paths:
-        - documentation/
+      - documentation/
