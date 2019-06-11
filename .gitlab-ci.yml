@@ -3,6 +3,7 @@ image: coderbase/angular:8
 stages:
   - build
   - doc
+  - test
   - deploy-doc
 
 build:
@@ -35,3 +36,12 @@ pages:
     - public
   only:
   - master
+
+test:
+  stage: test
+  script:
+  - ng lint
+  - ng build --prod && npm run generate
+  - npm run cy:verify
+  - npm run ci:cy-run
+
