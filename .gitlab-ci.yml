@@ -1,5 +1,6 @@
 image: registry.gitlab.com/coderbaseit/crm-grenoble-mai
-
+variables:
+  DOCKER_DRIVER: overlay2
 stages:
   - build
   - doc
@@ -31,6 +32,7 @@ pages:
   script:
   - mkdir .public
   - cp -r documentation/* .public
+  - mkdir public
   - mv .public public/documentation
   artifacts:
     paths:
