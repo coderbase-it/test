@@ -1,4 +1,4 @@
-image: coderbase/angular:8
+image: registry.gitlab.com/coderbaseit/crm-grenoble-mai
 
 stages:
   - build
