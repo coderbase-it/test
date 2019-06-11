@@ -19,6 +19,9 @@ build:
         - dist/
 doc:
   stage: doc
+  cache:
+      paths:
+        - node_modules/
   script:
     - npm run compodoc-ci
   artifacts:
@@ -39,6 +42,9 @@ pages:
 
 test:
   stage: test
+  cache:
+      paths:
+        - node_modules/
   script:
   - ng lint
   - ng build --prod && npm run generate

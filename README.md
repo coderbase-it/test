@@ -12,3 +12,5 @@
 # Mock APi 
 
 npm install -g json-server
+
+[![pipeline status](https://gitlab.com/nlabbe/gitlab-workshop/badges/master/pipeline.svg)](https://gitlab.com/nlabbe/gitlab-workshop/commits/master)
