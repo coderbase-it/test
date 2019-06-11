@@ -40,7 +40,6 @@ pages:
 
 generateApi:
   stage: test
-  use: build
   script:
   - ng lint
   - npm run json-server
@@ -48,7 +47,6 @@ generateApi:
 
 test:
   stage: test
-  use: build
   script:
   - npm run cy:verify
   - npm run ci:cy-run
