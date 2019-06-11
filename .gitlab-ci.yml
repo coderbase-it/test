@@ -1,6 +1,8 @@
 image: registry.gitlab.com/coderbaseit/crm-grenoble-mai
+
 variables:
   DOCKER_DRIVER: overlay2
+
 stages:
   - build
   - doc
@@ -43,6 +45,7 @@ pages:
 generateApi:
   stage: test
   script:
+  - npm install
   - ng lint
   - npm run json-server
 
@@ -50,5 +53,6 @@ generateApi:
 test:
   stage: test
   script:
+  - npm install
   - npm run cy:verify
   - npm run ci:cy-run
