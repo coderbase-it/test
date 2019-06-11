@@ -3,8 +3,9 @@ image: registry.gitlab.com/coderbaseit/crm-grenoble-mai
 stages:
   - build
   - doc
-  - test
   - deploy-doc
+  - test
+
 
 build:
     stage: build
@@ -37,7 +38,7 @@ pages:
   only:
   - master
 
-generate-api:
+generateApi:
   stage: test
   use: build
   script:
@@ -47,6 +48,7 @@ generate-api:
 
 test:
   stage: test
+  use: build
   script:
   - npm run cy:verify
   - npm run ci:cy-run
