@@ -17,8 +17,8 @@ build:
         - dist/
 doc:
   stage: doc
-    script:
-      - npm run compodoc-ci
+  script:
+    - npm run compodoc-ci
   artifacts:
     paths:
       - documentation/
