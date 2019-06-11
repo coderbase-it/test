@@ -1,9 +1,11 @@
 import { OrderI } from '../interfaces/order-i';
 import { State } from '../enums/state.enum';
+import { Client } from './client.model';
 
 export class Order implements OrderI {
   id: string;
   clientId: string ;
+  client: Client;
   type: string;
   duration = 1;
   adrDutyFree = 500;
