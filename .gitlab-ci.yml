@@ -12,8 +12,10 @@ stages:
 build:
     stage: build
     cache:
+      key: ${CI_COMMIT_REF_SLUG}
       paths:
         - node_modules/
+        - /root/.cache/Cypress
     script:
       - npm install --quiet --save-dev
       - npm run build-prod
@@ -48,10 +50,7 @@ test:
   stage: test
   dependencies:
     - build
-  cache:
-      key: ${CI_COMMIT_REF_SLUG}
-      paths:
-        - node_modules/
+
   script:
   - npm install
   - ng lint
