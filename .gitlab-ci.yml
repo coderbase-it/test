@@ -1,5 +1,4 @@
-image: registry.gitlab.com/coderbaseit/crm-grenoble-mai
-
+image: registry.gitlab.com/coderbaseit/crm-grenoble-mai/coderbase-test
 variables:
   DOCKER_DRIVER: overlay2
 
