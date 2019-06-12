@@ -15,7 +15,7 @@ build:
       paths:
         - node_modules/
     script:
-      - npm ci --quiet --save-dev
+      - npm install --quiet --save-dev
       - npm run build-prod
     artifacts:
       paths:
