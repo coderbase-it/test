@@ -12,6 +12,7 @@ stages:
 build:
     stage: build
     cache:
+      key: ${CI_COMMIT_REF_SLUG}
       paths:
         - node_modules/
     script:
@@ -21,7 +22,7 @@ build:
       paths:
         - dist/
 doc:
-  stage: doc
+  stage: build
   script:
     - npm run compodoc-ci
   artifacts:
@@ -45,10 +46,11 @@ pages:
 test:
   image: registry.gitlab.com/coderbaseit/crm-grenoble-mai/coderbase-test:12.1.0
   stage: test
+  dependencies:
+    - build
   script:
   - npm install
   - ng lint
   - npm run ci:json-server
-  - cd ..
   - npm run cy:verify
   - npm run ci:cy-run
