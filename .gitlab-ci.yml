@@ -7,6 +7,7 @@ stages:
   - doc
   - deploy-doc
   - test
+  - deploy
 
 
 build:
@@ -50,7 +51,6 @@ test:
   stage: test
   dependencies:
     - build
-
   script:
   - npm install
   - ng lint
@@ -60,13 +60,20 @@ test:
   artifacts:
     when: on_failure
     expire_in: '1 week'
-    untracked: true
     paths:
       - cypress/videos
       - cypress/screenshots
   artifacts:
     when: on_success
     expire_in: '3 days'
-    untracked: true
     paths:
       - cypress/screenshots
+
+deploy-prod:
+  image: registry.gitlab.com/coderbaseit/crm-grenoble-mai/coderbase-firebase:12.1.0
+  stage: deploy
+  only:
+    - master
+  script:
+    - firebase use coderbase-starter --token $FIREBASE_TOKEN
+    - firebase deploy --only hosting -m "Pipe $CI_PIPELINE_ID Build $CI_BUILD_ID" --token $FIREBASE_TOKEN
