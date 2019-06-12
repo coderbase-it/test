@@ -12,7 +12,6 @@ stages:
 build:
     stage: build
     cache:
-      key: ${CI_COMMIT_REF_SLUG}
       paths:
         - node_modules/
     script:
@@ -21,7 +20,7 @@ build:
     artifacts:
       paths:
         - dist/
-        
+
 doc:
   stage: build
   script:
