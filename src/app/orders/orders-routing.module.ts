@@ -13,7 +13,7 @@ const appRoutes: Routes = [
     data: {title: 'Orders', label: 'list of orders'},
     children: [
       {path: 'detail', component: DetailOrderComponent},
-      {path: 'comment', component: CommentOrderComponent},
+      {path: 'comment', component: CommentOrderComponent}
     ]
   },
   {
@@ -25,7 +25,7 @@ const appRoutes: Routes = [
     path: 'edit/:id',
     component: PageEditOrderComponent,
     data: {title: 'Orders', label: 'Edit a order'}
-  },
+  }
 ];
 
 @NgModule({

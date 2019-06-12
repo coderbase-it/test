@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Router, RouterModule, Routes, PreloadAllModules } from '@angular/router';
-import { environment } from '../environments/environment';
 
 // Application Route
 // Lazy loading Angular 8 new pattern
@@ -19,8 +18,8 @@ const appRoutes: Routes = [
     loadChildren: () => import('./orders/orders.module').then(m => m.OrdersModule),
   }, {
     path: '**',
-    loadChildren: () => import('./page-not-found/page-not-found.module').then(m => m.PageNotFoundModule),
-  },
+    loadChildren: () => import('./page-not-found/page-not-found.module').then(m => m.PageNotFoundModule)
+  }
 ];
 
 @NgModule({

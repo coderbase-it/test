@@ -16,7 +16,7 @@ build:
       paths:
         - node_modules/
     script:
-      - npm install --quiet --save-dev
+      - npm ci --quiet --save-dev
       - npm run build-prod
     artifacts:
       paths:
@@ -48,9 +48,26 @@ test:
   stage: test
   dependencies:
     - build
+  cache:
+      key: ${CI_COMMIT_REF_SLUG}
+      paths:
+        - node_modules/
   script:
   - npm install
   - ng lint
   - npm run ci:json-server
   - npm run cy:verify
   - npm run ci:cy-run
+  artifacts:
+    when: on_failure
+    expire_in: '1 week'
+    untracked: true
+    paths:
+      - cypress/videos
+      - cypress/screenshots
+  artifacts:
+    when: on_success
+    expire_in: '3 days'
+    untracked: true
+    paths:
+      - cypress/screenshots
