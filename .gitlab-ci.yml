@@ -1,4 +1,4 @@
-image: registry.gitlab.com/coderbaseit/crm-grenoble-mai/coderbase-test
+image: registry.gitlab.com/coderbaseit/crm-grenoble-mai
 variables:
   DOCKER_DRIVER: overlay2
 
@@ -47,9 +47,10 @@ generateApi:
   - npm install
   - ng lint
   - npm run json-server
-
+  allow_failure: true
 
 test:
+  image: registry.gitlab.com/coderbaseit/crm-grenoble-mai/coderbase-test
   stage: test
   script:
   - npm install
