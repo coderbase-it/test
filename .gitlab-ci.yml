@@ -162,3 +162,6 @@ waiting_spec:
 window_spec:
   <<: *e2e_test_definition
 
+orders_spec:
+  <<: *e2e_test_definition
+
