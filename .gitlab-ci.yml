@@ -90,6 +90,7 @@ deploy-prod:
 # Hidden job that defines an anchor named 'e2e_test_definition'
 # This job will be automatically assigned "test" phase
 .job_template: &e2e_test_definition
+  image: registry.gitlab.com/coderbaseit/crm-grenoble-mai/coderbase-test:12.1.0
   script:
     - cypress ci --spec "cypress/integration/tests/$CI_BUILD_NAME.js"
 
