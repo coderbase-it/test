@@ -15,7 +15,6 @@ build:
       key: ${CI_COMMIT_REF_SLUG}
       paths:
         - node_modules/
-        - /root/.cache/Cypress
     script:
       - npm install --quiet --save-dev
       - npm run build-prod
