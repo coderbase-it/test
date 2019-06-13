@@ -19,7 +19,8 @@
     "lint-fix": "tslint --fix ./src/**/*.ts -t verbose",
     "ci:start-server": "angular-http-server --path ./dist/coderbase-starter -p 4200",
     "ci:cy-run": "start-server-and-test ci:start-server http://localhost:4200 cy:run",
-    "cy:verify": "cypress verify"
+    "cy:verify": "cypress verify",
+    "cypress-multi" : "cypress ci --spec 'cypress/integration/tests/$CI_BUILD_NAME.js'"
   },
   "private": true,
   "dependencies": {
