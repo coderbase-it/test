@@ -54,7 +54,6 @@ test:
   script:
   - npm install
   - npm run ci:json-server
-  - npm run ci:cy-run
 
 
 deploy-prod:
@@ -84,7 +83,7 @@ deploy-prod:
     - npm install
     - npm run ci:json-server
     - echo $CI_BUILD_NAME
-    - npm run ci:start-server
+    - npm run ci:cy-run
     - $(npm bin)/cypress run --spec cypress/integration/tests/$CI_BUILD_NAME.js
   artifacts:
     when: on_failure
