@@ -53,7 +53,8 @@ test:
     - build
   script:
   - npm install
-
+  - npm run ci:json-server
+  - npm run ci:cy-run
 
 
 deploy-prod:
@@ -84,7 +85,6 @@ deploy-prod:
     - $(npm bin)/cypress verify
     - echo $CI_BUILD_NAME
     - npm run ci:json-server
-    - npm run cy:verify
     - npm run ci:cy-run
     - $(npm bin)/cypress run --spec cypress/integration/tests/$CI_BUILD_NAME.js
   artifacts:
