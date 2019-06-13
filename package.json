@@ -13,14 +13,14 @@
     "e2e": "ng e2e",
     "generate": "node api/generate.js > api/db.json",
     "json-server": "npm run generate && cd api && node server.js",
-    "ci:json-server": "npm run generate && cd api && nohup node server.js &",
     "compodoc": "compodoc -s -o -p src/tsconfig.app.json --language fr-FR --hideGenerator",
-    "compodoc-ci": "compodoc -p src/tsconfig.app.json --silent --language fr-FR --hideGenerator",
+    "ci:compodoc": "compodoc -p src/tsconfig.app.json --silent --language fr-FR --hideGenerator",
     "lint-fix": "tslint --fix ./src/**/*.ts -t verbose",
+    "ci:json-server": "npm run generate && cd api && nohup node server.js &",
     "ci:start-server": "angular-http-server --path ./dist/coderbase-starter -p 4200",
     "ci:cy-run": "start-server-and-test ci:start-server http://localhost:4200 cy:run",
     "cy:verify": "cypress verify",
-    "cypress-multi" : "cypress ci --spec 'cypress/integration/tests/$CI_BUILD_NAME.js'"
+    "cypress-multi" : "cypress run --spec 'cypress/integration/tests/$CI_BUILD_NAME.js'"
   },
   "private": true,
   "dependencies": {
