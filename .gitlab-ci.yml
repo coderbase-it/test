@@ -51,6 +51,8 @@ test:
   stage: test
   dependencies:
     - build
+  script:
+  - npm install
 
 
 
