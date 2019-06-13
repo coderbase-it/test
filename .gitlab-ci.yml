@@ -17,6 +17,7 @@ build:
         - node_modules/
     script:
       - npm install --quiet --save-dev
+      - ng lint
       - npm run build-prod
     artifacts:
       paths:
@@ -44,26 +45,14 @@ pages:
   - master
 
 
+
 test:
   image: registry.gitlab.com/coderbaseit/crm-grenoble-mai/coderbase-test:12.1.0
   stage: test
   dependencies:
     - build
-  script:
-  - npm install
-  - ng lint
 
-  artifacts:
-    when: on_failure
-    expire_in: '1 week'
-    paths:
-      - cypress/videos
-      - cypress/screenshots
-  artifacts:
-    when: on_success
-    expire_in: '3 days'
-    paths:
-      - cypress/screenshots
+
 
 deploy-prod:
   image: registry.gitlab.com/coderbaseit/crm-grenoble-mai/coderbase-firebase:12.1.0
@@ -96,7 +85,17 @@ deploy-prod:
     - npm run cy:verify
     - npm run ci:cy-run
     - $(npm bin)/cypress run --spec cypress/integration/tests/$CI_BUILD_NAME.js
-
+  artifacts:
+    when: on_failure
+    expire_in: '1 week'
+    paths:
+      - cypress/videos
+      - cypress/screenshots
+  artifacts:
+    when: on_success
+    expire_in: '3 days'
+    paths:
+      - cypress/screenshots
 orders.spec:
   <<: *e2e_test_definition
 
