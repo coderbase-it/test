@@ -93,6 +93,7 @@ deploy-prod:
   image: registry.gitlab.com/coderbaseit/crm-grenoble-mai/coderbase-test:12.1.0
   script:
     - npm install -g cypress
+    - echo $CI_BUILD_NAME
     - cypress run --spec cypress/integration/tests/$CI_BUILD_NAME.js
 
 actions_spec:
