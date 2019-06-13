@@ -1,6 +1,7 @@
 
 
-[![pipeline status](https://gitlab.com/nlabbe/gitlab-workshop/badges/master/pipeline.svg)](https://gitlab.com/nlabbe/gitlab-workshop/commits/master)
+
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://coderbaseit.gitlab.io/crm-grenoble-mai/)
 
 https://coderbaseit.gitlab.io/crm-grenoble-mai/documentation/
 
