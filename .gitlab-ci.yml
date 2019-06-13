@@ -91,9 +91,10 @@ deploy-prod:
 .job_template: &e2e_test_definition
   image: registry.gitlab.com/coderbaseit/crm-grenoble-mai/coderbase-test:12.1.0
   script:
-    - npm install -g cypress
+    - npm install --save-dev cypress
+    - $(npm bin)/cypress verify
     - echo $CI_BUILD_NAME
-    - cypress run --spec cypress/integration/tests/$CI_BUILD_NAME.js
+    - $(npm bin)/cypress run --spec cypress/integration/tests/$CI_BUILD_NAME.js
 
 actions_spec:
   <<: *e2e_test_definition
