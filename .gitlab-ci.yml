@@ -96,75 +96,75 @@ deploy-prod:
     - echo $CI_BUILD_NAME
     - $(npm bin)/cypress run --spec cypress/integration/tests/$CI_BUILD_NAME.js
 
-actions_spec:
+actions.spec:
   <<: *e2e_test_definition
 
-aliasing_spec:
+aliasing.spec:
   <<: *e2e_test_definition
 
-assertions_spec:
+assertions.spec:
   <<: *e2e_test_definition
 
-basic_spec:
+basic.spec:
   <<: *e2e_test_definition
 
-config_spec:
+config.spec:
   <<: *e2e_test_definition
 
-connectors_spec:
+connectors.spec:
   <<: *e2e_test_definition
 
-cookies_spec:
+cookies.spec:
   <<: *e2e_test_definition
 
-cookies2_spec:
+cookies2.spec:
   <<: *e2e_test_definition
 
-dom_spec:
+dom.spec:
   <<: *e2e_test_definition
 
-env_spec:
+env.spec:
   <<: *e2e_test_definition
 
-fixtures_spec:
+fixtures.spec:
   <<: *e2e_test_definition
 
-local-storage_spec:
+local-storage.spec:
   <<: *e2e_test_definition
 
-location_spec:
+location.spec:
   <<: *e2e_test_definition
 
-misc_spec:
+misc.spec:
   <<: *e2e_test_definition
 
-navigation_spec:
+navigation.spec:
   <<: *e2e_test_definition
 
-network_spec:
+network.spec:
   <<: *e2e_test_definition
 
-querying_spec:
+querying.spec:
   <<: *e2e_test_definition
 
-server_spec:
+server.spec:
   <<: *e2e_test_definition
 
-traversal_spec:
+traversal.spec:
   <<: *e2e_test_definition
 
-utilities_spec:
+utilities.spec:
   <<: *e2e_test_definition
 
-viewport_spec:
+viewport.spec:
   <<: *e2e_test_definition
 
-waiting_spec:
+waiting.spec:
   <<: *e2e_test_definition
 
-window_spec:
+window.spec:
   <<: *e2e_test_definition
 
-orders_spec:
+orders.spec:
   <<: *e2e_test_definition
 
