@@ -30,10 +30,9 @@ describe("Orders", () => {
     cy.get("[data-cy=select]").first().select('Cancel').then((select$) => {
 
 
-      cy.get("[data-cy=select]").then((select2$) => {
-        expect(select2$.val()).eq('Cancel')
+
+        expect(select$.val()).eq('Cancel')
         expect(select$.parent().hasClass('state-cancel')).eq(true)
-      })
       //expect(select2$.get('option').text()).eq('Cancel')
     })
    /*  select = cy.get("app-item-order:first-child select")

@@ -1,8 +1,33 @@
 
 let faker = require('faker');
 var db = { "clients":[ ], "orders": []};
+
+
+let generateClients = () => {
+
+  for (let id = 0; id < 30; id++) {
+    let name = faker.company.companyName();
+    let email = faker.internet.email();
+    const State = [
+      'Active',
+      'Inactive'
+    ]
+    let randomState = faker.random.arrayElement(State)
+
+
+    db.clients.push({
+      "id": id,
+      "name": name,
+      "email": email,
+      "state": randomState
+    });
+  }
+
+  return db.clients
+}
+
+
 let generateOrders = (clients) => {
-  let orders = [];
 
   clients.forEach((client, index) => {
     if (client.state === "Active") {
@@ -41,33 +66,8 @@ let generateOrders = (clients) => {
       })
     }
   })
-
-
 }
 
-let generateClients = () => {
-  let clients = [];
-
-  for (let id = 0; id < 30; id++) {
-    let name = faker.company.companyName();
-    let email = faker.internet.email();
-    const State = [
-      'Active',
-      'Inactive'
-    ]
-    let randomState = faker.random.arrayElement(State)
-
-
-    db.clients.push({
-      "id": id,
-      "name": name,
-      "email": email,
-      "state": randomState
-    });
-  }
-
-  return db.clients
-}
 
 const clients = generateClients();
 generateOrders(clients);
