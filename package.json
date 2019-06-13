@@ -74,5 +74,11 @@
     "tsickle": ">=0.34.0",
     "tslint": "~5.11.0",
     "typescript": "~3.4.5"
+  },
+  "config": {
+    "multi-cypress": {
+      "specs": "cypress/integration/tests/*_spec.js",
+      "image": "registry.gitlab.com/coderbaseit/crm-grenoble-mai/coderbase-test:12.1.0"
+    }
   }
 }
