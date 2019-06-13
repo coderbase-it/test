@@ -52,9 +52,7 @@ test:
   script:
   - npm install
   - ng lint
-  - npm run ci:json-server
-  - npm run cy:verify
-  - npm run ci:cy-run
+
   artifacts:
     when: on_failure
     expire_in: '1 week'
@@ -94,76 +92,10 @@ deploy-prod:
     - npm install --save-dev cypress
     - $(npm bin)/cypress verify
     - echo $CI_BUILD_NAME
+    - npm run ci:json-server
+    - npm run cy:verify
+    - npm run ci:cy-run
     - $(npm bin)/cypress run --spec cypress/integration/tests/$CI_BUILD_NAME.js
-
-actions.spec:
-  <<: *e2e_test_definition
-
-aliasing.spec:
-  <<: *e2e_test_definition
-
-assertions.spec:
-  <<: *e2e_test_definition
-
-basic.spec:
-  <<: *e2e_test_definition
-
-config.spec:
-  <<: *e2e_test_definition
-
-connectors.spec:
-  <<: *e2e_test_definition
-
-cookies.spec:
-  <<: *e2e_test_definition
-
-cookies2.spec:
-  <<: *e2e_test_definition
-
-dom.spec:
-  <<: *e2e_test_definition
-
-env.spec:
-  <<: *e2e_test_definition
-
-fixtures.spec:
-  <<: *e2e_test_definition
-
-local-storage.spec:
-  <<: *e2e_test_definition
-
-location.spec:
-  <<: *e2e_test_definition
-
-misc.spec:
-  <<: *e2e_test_definition
-
-navigation.spec:
-  <<: *e2e_test_definition
-
-network.spec:
-  <<: *e2e_test_definition
-
-querying.spec:
-  <<: *e2e_test_definition
-
-server.spec:
-  <<: *e2e_test_definition
-
-traversal.spec:
-  <<: *e2e_test_definition
-
-utilities.spec:
-  <<: *e2e_test_definition
-
-viewport.spec:
-  <<: *e2e_test_definition
-
-waiting.spec:
-  <<: *e2e_test_definition
-
-window.spec:
-  <<: *e2e_test_definition
 
 orders.spec:
   <<: *e2e_test_definition
