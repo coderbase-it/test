@@ -81,7 +81,7 @@ deploy-prod:
   script:
     - npm install
     - echo $CI_BUILD_NAME
-    - npm run ci:start-server
+    - npm run ci:cy-run
   artifacts:
     when: on_failure
     expire_in: '1 week'
