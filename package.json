@@ -17,7 +17,7 @@
     "compodoc": "compodoc -s -o -p src/tsconfig.app.json --language fr-FR --hideGenerator",
     "ci:compodoc": "compodoc -p src/tsconfig.app.json --silent --language fr-FR --hideGenerator",
     "lint-fix": "tslint --fix ./src/**/*.ts -t verbose",
-    "ci:start-server": "nohup angular-http-server --path ./dist/coderbase-starter -p 4200 ",
+    "ci:start-server": "nohup angular-http-server --path ./dist/coderbase-starter -p 4200 "
 
 
   },
