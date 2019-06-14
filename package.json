@@ -2,24 +2,17 @@
   "name": "coderbase-starter",
   "version": "0.0.0",
   "scripts": {
-    "cy:open": "cypress open",
-    "cy:run": "cypress run",
-    "cy:verify": "cypress verify",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "build-prod": "ng build --prod",
-    "test": "npx cypress open",
+    "test": "npg test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "generate": "node api/generate.js > api/db.json",
     "json-server": "npm run generate && cd api && node server.js",
     "compodoc": "compodoc -s -o -p src/tsconfig.app.json --language fr-FR --hideGenerator",
-    "ci:compodoc": "compodoc -p src/tsconfig.app.json --silent --language fr-FR --hideGenerator",
-    "lint-fix": "tslint --fix ./src/**/*.ts -t verbose",
-    "ci:cy:run" :"cypress run --spec cypress/integration/tests/$CI_BUILD_NAME.js",
-    "ci:start-server": "nohup angular-http-server --path ./dist/coderbase-starter -p 4200 ",
-    "ci:cy-run": "start-server-and-test ci:start-server http://localhost:4200 ci:cy:run "
+    "lint-fix": "tslint --fix ./src/**/*.ts -t verbose"
 
   },
   "private": true,
@@ -32,7 +25,6 @@
     "@angular/platform-browser": "~8.0.0",
     "@angular/platform-browser-dynamic": "~8.0.0",
     "@angular/router": "~8.0.0",
-    "@briebug/cypress-schematic": "^2.0.0",
     "@coderbase/ui": "0.0.6",
     "@fortawesome/angular-fontawesome": "^0.4.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.18",
@@ -56,9 +48,7 @@
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~12.0.3",
-    "angular-http-server": "^1.9.0",
     "codelyzer": "^5.0.1",
-    "cypress": "3.3.1",
     "faker": "^4.1.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
@@ -69,17 +59,10 @@
     "karma-jasmine": "~1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
     "ng-packagr": "^5.2.0",
-    "start-server-and-test": "^1.9.1",
     "ts-loader": "6.0.2",
     "ts-node": "~8.2.0",
     "tsickle": ">=0.34.0",
     "tslint": "~5.11.0",
     "typescript": "~3.4.5"
-  },
-  "config": {
-    "multi-cypress": {
-      "specs": "cypress/integration/tests/*_spec.js",
-      "image": "registry.gitlab.com/coderbaseit/crm-grenoble-mai/coderbase-test:12.1.0"
-    }
   }
 }
