@@ -18,7 +18,7 @@
     "lint-fix": "tslint --fix ./src/**/*.ts -t verbose",
     "ci:json-server": "npm run generate && cd api && nohup node server.js &",
     "ci:start-server": "angular-http-server --path ./dist/coderbase-starter -p 4200",
-    "ci:cy-run": "start-server-and-test ci:start-server http://localhost:4200",
+    "ci:cy-run": "start-server-and-test ci:start-server http://localhost:4200 cy:run",
     "cy:verify": "cypress verify"
   },
   "private": true,
