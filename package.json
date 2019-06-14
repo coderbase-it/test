@@ -2,8 +2,9 @@
   "name": "coderbase-starter",
   "version": "0.0.0",
   "scripts": {
-    "cypress-open": "cypress open",
+    "cy:open": "cypress open",
     "cy:run": "cypress run",
+    "cy:verify": "cypress verify",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -16,9 +17,9 @@
     "compodoc": "compodoc -s -o -p src/tsconfig.app.json --language fr-FR --hideGenerator",
     "ci:compodoc": "compodoc -p src/tsconfig.app.json --silent --language fr-FR --hideGenerator",
     "lint-fix": "tslint --fix ./src/**/*.ts -t verbose",
-    "ci:start-server": "angular-http-server --path ./dist/coderbase-starter -p 4200",
-    "ci:cy-run": "start-server-and-test ci:start-server http://localhost:4200 cy:run",
-    "cy:verify": "cypress verify"
+    "ci:start-server": "nohup angular-http-server --path ./dist/coderbase-starter -p 4200 ",
+
+
   },
   "private": true,
   "dependencies": {
