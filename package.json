@@ -17,8 +17,9 @@
     "compodoc": "compodoc -s -o -p src/tsconfig.app.json --language fr-FR --hideGenerator",
     "ci:compodoc": "compodoc -p src/tsconfig.app.json --silent --language fr-FR --hideGenerator",
     "lint-fix": "tslint --fix ./src/**/*.ts -t verbose",
-    "ci:start-server": "nohup angular-http-server --path ./dist/coderbase-starter -p 4200 "
-
+    "ci:cy:run" :"cypress run --spec cypress/integration/tests/$CI_BUILD_NAME.js",
+    "ci:start-server": "nohup angular-http-server --path ./dist/coderbase-starter -p 4200 ",
+    "ci:cy-run": "start-server-and-test ci:start-server http://localhost:4200 ci:cy:run "
 
   },
   "private": true,

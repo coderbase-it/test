@@ -82,7 +82,6 @@ deploy-prod:
     - npm install
     - echo $CI_BUILD_NAME
     - npm run ci:start-server
-    - $(npm bin)/cypress run --spec cypress/integration/tests/$CI_BUILD_NAME.js
   artifacts:
     when: on_failure
     expire_in: '1 week'
